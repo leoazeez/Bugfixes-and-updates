@@ -47,7 +47,19 @@ static class DeploymentController
 	/// </remarks>
 	public static void HandleDeploymentInput()
 	{
-		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
+        //Uwin
+        if (SwinGame.KeyTyped(KeyCode.vk_1) | SwinGame.KeyTyped(KeyCode.vk_t)) _selectedShip = ShipName.Tug;
+        if (SwinGame.KeyTyped(KeyCode.vk_2) | SwinGame.KeyTyped(KeyCode.vk_d)) _selectedShip = ShipName.Destroyer;
+        if (SwinGame.KeyTyped(KeyCode.vk_3) | SwinGame.KeyTyped(KeyCode.vk_s)) _selectedShip = ShipName.Submarine;
+        if (SwinGame.KeyTyped(KeyCode.vk_4) | SwinGame.KeyTyped(KeyCode.vk_b)) _selectedShip = ShipName.Battleship;
+        if (SwinGame.KeyTyped(KeyCode.vk_5) | SwinGame.KeyTyped(KeyCode.vk_a)) _selectedShip = ShipName.AircraftCarrier;
+        //Uwin
+
+
+
+
+
+        if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
 			GameController.AddNewState(GameState.ViewingGameMenu);
 		}
 
@@ -70,6 +82,7 @@ static class DeploymentController
 			} else {
 				DoDeployClick();
 			}
+
 
 			if (GameController.HumanPlayer.ReadyToDeploy & UtilityFunctions.IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT)) {
 				GameController.EndDeployment();
